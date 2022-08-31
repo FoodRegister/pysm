@@ -8,4 +8,8 @@ This project is still under developpement and I must stay that it might not be e
 
 # Zeus
 
-Zeus is the main tool you should use if you are starting to use pysm.
+Zeus is the main tool you should use if you are starting to use pysm. It includes many rules component, deriving from the base component of the Chronos router
+
+# Chronos
+
+Chronos is the low level part of pysm, it uses basic rules to allow for complex syntaxes and handles import routing and import state matching, it has only one basic component, which is the building block for all the components in the Zeus syntax framework
