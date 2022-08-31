@@ -1,7 +1,7 @@
 
 from importlib.machinery        import ModuleSpec
 from pysm.chronos.router.loader import MetaPathLoader
-from pysm.chronos.router.types  import CH_MetaPath
+from pysm.chronos.types         import CH_MetaPath
 
 import os
 
@@ -15,7 +15,6 @@ class MetaPathImporter(object):
         and package_path is not None \
         and len(package_path) == 0:
             package_path = self.find_parent_path(module_name)
-        print(module_name, package_path)
         
         for path_finder in self.meta_path:
             loader = path_finder.find_module(module_name, package_path)
@@ -41,7 +40,6 @@ class MetaPathImporter(object):
     def find_parent_path(self, module_name):
         first_module = module_name.split(".")[0]
         next_modules = module_name.split(".")[1:-1]
-        print(first_module, next_modules)
         next_modpath = "" if len(next_modules) == 0 else os.path.join(*next_modules)
 
         pathes = self.find_spec(first_module, None, "").submodule_search_locations
